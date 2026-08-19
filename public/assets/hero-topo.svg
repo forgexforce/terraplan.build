@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" fill="none">
+  <defs>
+    <path id="ring" d="M-14,-96 C 50,-114 110,-58 96,8 C 85,64 47,112 -12,99 C -70,87 -112,40 -99,-18 C -88,-66 -57,-90 -14,-96 Z"/>
+  </defs>
+  <g stroke="#11723A" stroke-width="1.5" fill="none" stroke-linecap="round">
+    <g transform="translate(1075,338)">
+      <use href="#ring" transform="scale(0.55)" opacity="0.34"/>
+      <use href="#ring" transform="scale(1.00)" opacity="0.28"/>
+      <use href="#ring" transform="scale(1.48)" opacity="0.23"/>
+      <use href="#ring" transform="scale(1.98)" opacity="0.18"/>
+      <use href="#ring" transform="scale(2.50)" opacity="0.14"/>
+      <use href="#ring" transform="scale(3.04)" opacity="0.10"/>
+      <use href="#ring" transform="scale(3.62)" opacity="0.07"/>
+    </g>
+    <g transform="translate(286,690)">
+      <use href="#ring" transform="scale(0.50)" opacity="0.30"/>
+      <use href="#ring" transform="scale(0.96)" opacity="0.24"/>
+      <use href="#ring" transform="scale(1.46)" opacity="0.18"/>
+      <use href="#ring" transform="scale(2.00)" opacity="0.13"/>
+      <use href="#ring" transform="scale(2.58)" opacity="0.09"/>
+      <use href="#ring" transform="scale(3.20)" opacity="0.06"/>
+    </g>
+    <path d="M-60,168 C 250,104 470,214 752,156 C 1010,104 1238,206 1520,140" opacity="0.16"/>
+    <path d="M-60,232 C 240,176 486,286 760,224 C 1024,166 1250,266 1520,206" opacity="0.13"/>
+    <path d="M-60,786 C 286,724 520,832 812,768 C 1066,712 1268,800 1520,744" opacity="0.14"/>
+    <path d="M-60,846 C 300,792 540,888 836,828 C 1080,780 1280,856 1520,808" opacity="0.10"/>
+  </g>
+  <g stroke="#B89150" stroke-width="1.5" fill="none" stroke-linecap="round">
+    <path d="M-60,486 C 320,420 560,560 880,488 C 1140,430 1320,520 1520,470" opacity="0.30"/>
+    <use href="#ring" transform="translate(1075,338) scale(0.20)" opacity="0.4"/>
+  </g>
+</svg>

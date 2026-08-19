@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page not found — TerraPlan</title>
+  <meta name="description" content="That page isn't here. Head back to TerraPlan and we'll help you find the plan hiding in your acreage." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .nf {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background:
+        radial-gradient(120% 80% at 50% 0%, var(--pine-50) 0%, transparent 60%),
+        var(--canvas);
+    }
+    .nf__logo { height: 34px; width: auto; margin-bottom: 3.5rem; }
+    .nf__code {
+      font-family: var(--serif);
+      font-size: clamp(4.5rem, 14vw, 8rem);
+      font-weight: 400;
+      line-height: 1;
+      color: var(--primary);
+      letter-spacing: -.03em;
+    }
+    .nf__title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      font-weight: 500;
+      margin-top: 1.2rem;
+      color: var(--ink);
+    }
+    .nf__body {
+      max-width: 34rem;
+      margin: 1.1rem auto 2.5rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .nf__actions { display: flex; flex-wrap: wrap; gap: .9rem; justify-content: center; }
+    .nf__rule {
+      width: 60px;
+      height: 2px;
+      background: var(--brass);
+      margin: 3.5rem auto 1.4rem;
+      border: 0;
+    }
+    .nf__legal { font-size: .82rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="nf">
+    <a href="/" aria-label="TerraPlan home">
+      <img class="nf__logo" src="/assets/logo-horizontal.svg" alt="TerraPlan" />
+    </a>
+
+    <p class="eyebrow">Off the survey line</p>
+    <p class="nf__code">404</p>
+    <h1 class="nf__title">This path isn&rsquo;t on the map.</h1>
+    <p class="nf__body">
+      The page you were looking for has moved or never existed. Nothing is lost &mdash;
+      head back to the start, and we&rsquo;ll walk your land from there.
+    </p>
+
+    <div class="nf__actions">
+      <a class="btn btn--primary" href="/">Back to TerraPlan</a>
+      <a class="btn btn--ghost" href="/#contact">Start a land review</a>
+    </div>
+
+    <hr class="nf__rule" />
+    <p class="nf__legal">&copy; 2026 TerraPlan &mdash; Survey &middot; Civil Engineering &middot; Entitlements</p>
+  </main>
+</body>
+</html>

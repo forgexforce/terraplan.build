@@ -1,0 +1,100 @@
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'public/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+# Required for the OIDC token exchange with AWS
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+env:
+  AWS_REGION: us-east-1
+  STACK_NAME: terraplan
+
+jobs:
+  deploy:
+    name: Publish to S3 + CloudFront
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://terraplan.build
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Resolve stack outputs
+        id: stack
+        run: |
+          outputs=$(aws cloudformation describe-stacks \
+            --stack-name "$STACK_NAME" \
+            --query 'Stacks[0].Outputs' --output json)
+          bucket=$(echo "$outputs" | jq -r '.[] | select(.OutputKey=="BucketName") | .OutputValue')
+          dist=$(echo "$outputs"   | jq -r '.[] | select(.OutputKey=="DistributionId") | .OutputValue')
+          test -n "$bucket" -a "$bucket" != "null" || { echo "::error::BucketName not found"; exit 1; }
+          test -n "$dist"   -a "$dist"   != "null" || { echo "::error::DistributionId not found"; exit 1; }
+          echo "bucket=$bucket" >> "$GITHUB_OUTPUT"
+          echo "distribution=$dist" >> "$GITHUB_OUTPUT"
+          echo "Deploying to s3://$bucket via $dist"
+
+      # Assets first, so a page is never served referencing a file that isn't uploaded yet.
+      - name: Sync assets
+        run: |
+          aws s3 sync public/ "s3://${{ steps.stack.outputs.bucket }}/" \
+            --delete \
+            --exclude '*.html' \
+            --cache-control 'public, max-age=3600'
+
+      # Filenames are not content-hashed, so HTML must always revalidate.
+      - name: Sync HTML
+        run: |
+          aws s3 sync public/ "s3://${{ steps.stack.outputs.bucket }}/" \
+            --delete \
+            --exclude '*' --include '*.html' \
+            --cache-control 'public, max-age=0, must-revalidate' \
+            --content-type 'text/html; charset=utf-8'
+
+      - name: Invalidate CloudFront
+        run: |
+          id=$(aws cloudfront create-invalidation \
+            --distribution-id "${{ steps.stack.outputs.distribution }}" \
+            --paths '/*' --query 'Invalidation.Id' --output text)
+          echo "Invalidation $id created; waiting for completion"
+          aws cloudfront wait invalidation-completed \
+            --distribution-id "${{ steps.stack.outputs.distribution }}" \
+            --id "$id"
+
+      - name: Smoke test
+        run: |
+          for path in / /404.html; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "https://terraplan.build${path}")
+            echo "$path -> $code"
+          done
+          code=$(curl -s -o /dev/null -w '%{http_code}' https://terraplan.build/)
+          test "$code" = "200" || { echo "::error::Homepage returned $code"; exit 1; }
+
+      - name: Summary
+        run: |
+          {
+            echo "### Deployed :rocket:"
+            echo ""
+            echo "- **Site:** https://terraplan.build"
+            echo "- **Bucket:** \`${{ steps.stack.outputs.bucket }}\`"
+            echo "- **Distribution:** \`${{ steps.stack.outputs.distribution }}\`"
+            echo "- **Commit:** \`${GITHUB_SHA::7}\`"
+          } >> "$GITHUB_STEP_SUMMARY"

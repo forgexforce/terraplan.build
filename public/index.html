@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TerraPlan — Concierge Land Development Planning · California &amp; Hawaii</title>
+  <meta name="description" content="TerraPlan turns raw California and Hawaii acreage into a clear, approved, build-ready plan — LiDAR survey, civil engineering, and county entitlements, handled by one concierge partner." />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="#top" aria-label="TerraPlan home">
+        <img src="assets/logo-horizontal.svg" alt="TerraPlan" />
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#problem">The Problem</a>
+        <a href="#plan">The Plan</a>
+        <a href="#journey">The Journey</a>
+        <a href="#trust">Trust</a>
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--primary btn--sm" href="#contact">Start a land review</a>
+        <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <img class="hero__topo" src="assets/hero-topo.svg" alt="" aria-hidden="true" />
+      <div class="hero__inner">
+        <p class="eyebrow eyebrow--center hero__eyebrow">Concierge Land Development &middot; California &amp; Hawaii</p>
+        <h1 class="hero__title">
+          There&rsquo;s a version of <span class="t-green">your land</span><br />
+          you <em>haven&rsquo;t met yet.</em>
+        </h1>
+        <p class="hero__sub">
+          TerraPlan turns raw California and Hawaii acreage into a clear, approved,
+          build-ready plan. You picture the future. We chart the path. The county says yes.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#contact">Start with a land review</a>
+          <a class="btn btn--ghost" href="#problem">See how it works</a>
+        </div>
+        <ul class="hero__marks" aria-label="What we handle">
+          <li>LiDAR Survey</li>
+          <li>Civil Engineering</li>
+          <li>County Entitlements</li>
+        </ul>
+      </div>
+      <a class="hero__scroll" href="#problem" aria-label="Scroll down">
+        <span>Scroll</span>
+        <span class="hero__scroll-line"></span>
+      </a>
+    </section>
+
+    <!-- ============ PAIN 1 ============ -->
+    <section class="pain pain--light" id="problem">
+      <span class="pain__numeral" aria-hidden="true">01</span>
+      <div class="pain__inner">
+        <div class="pain__text reveal">
+          <p class="eyebrow">The Problem &mdash; Part One</p>
+          <h2 class="pain__title">Owning the land was the easy part.</h2>
+          <p class="lead">
+            Then came the surveyors. The drone crews. The civil engineers. The permit
+            consultants. Five timelines. Four invoices. And one quiet question nobody
+            quite answers &mdash; who is actually in charge here?
+          </p>
+          <p class="pain__pull">&ldquo;You bought land. You didn&rsquo;t sign up to project-manage it.&rdquo;</p>
+        </div>
+        <figure class="pain__figure reveal" data-delay="1">
+          <img src="assets/pain-fragments.svg" alt="Scattered, disconnected lines and nodes representing a fragmented roster of vendors" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ PAIN 2 ============ -->
+    <section class="pain pain--tint pain--flip" id="pain-two">
+      <span class="pain__numeral" aria-hidden="true">02</span>
+      <div class="pain__inner">
+        <figure class="pain__figure reveal">
+          <img src="assets/pain-stall.svg" alt="A clear path of contour lines stalling at a dashed barrier before reaching its goal" />
+        </figure>
+        <div class="pain__text reveal" data-delay="1">
+          <p class="eyebrow">The Problem &mdash; Part Two</p>
+          <h2 class="pain__title">Somewhere between your vision and the county, big plans go quiet.</h2>
+          <p class="lead">
+            A slope nobody flagged. A setback nobody expected. A feasibility study that
+            lands too late to matter. Most land dreams don&rsquo;t fail loudly. They
+            stall &mdash; folded into a drawer, waiting for a yes that never gets asked for.
+          </p>
+          <p class="pain__pull">&ldquo;Ambition shouldn&rsquo;t need a translator.&rdquo;</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GUIDE / PLAN ============ -->
+    <section class="guide" id="plan">
+      <div class="guide__head reveal">
+        <p class="eyebrow eyebrow--center">Your Guide</p>
+        <h2 class="guide__title">This is the part where it gets <em>simple.</em></h2>
+        <p class="guide__intro">
+          You don&rsquo;t need ten vendors. You need one partner who has walked this
+          ground before &mdash; and knows the way through. That is the whole idea
+          behind TerraPlan.
+        </p>
+      </div>
+      <ol class="guide__steps">
+        <li class="step reveal">
+          <span class="step__num">01</span>
+          <span class="step__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M3 9c5-3 9 3 13 0s9-3 13 0" />
+              <path d="M3 16c5-3 9 3 13 0s9-3 13 0" />
+              <path d="M3 23c5-3 9 3 13 0s9-3 13 0" />
+            </svg>
+          </span>
+          <h3 class="step__title">We read the land.</h3>
+          <p class="step__text">
+            LiDAR survey, contour models, and orthophotography. Before anyone dreams,
+            we learn the truth of your terrain &mdash; every slope, every limit, every gift.
+          </p>
+        </li>
+        <li class="step reveal" data-delay="1">
+          <span class="step__num">02</span>
+          <span class="step__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 27 L9 27 L26 10 L22 6 L5 23 Z" />
+              <path d="M19 9 L23 13" />
+              <path d="M5 23 L9 27" />
+            </svg>
+          </span>
+          <h3 class="step__title">We draw the future.</h3>
+          <p class="step__text">
+            Site planning, grading design, and feasibility studies become real,
+            engineered plans. Your ambition, made buildable.
+          </p>
+        </li>
+        <li class="step reveal" data-delay="2">
+          <span class="step__num">03</span>
+          <span class="step__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="16" cy="14" r="10" />
+              <path d="M11 14 L15 18 L22 10" />
+              <path d="M10 23 L8 30 L16 26 L24 30 L22 23" />
+            </svg>
+          </span>
+          <h3 class="step__title">We earn the yes.</h3>
+          <p class="step__text">
+            We carry your plans to the county and the agencies &mdash; and stay at the
+            table, from first submission to approved permit.
+          </p>
+        </li>
+      </ol>
+      <p class="guide__closer reveal">
+        One partner. One plan. From first idea to approved permit.
+        <span>Everything but the hammer &mdash; you choose who builds it.</span>
+      </p>
+    </section>
+
+    <!-- ============ JOURNEY (placeholder imagery) ============ -->
+    <!-- Imagery below is illustrative placeholder artwork, ready to be swapped for photography. -->
+    <section class="journey" id="journey">
+      <div class="journey__head reveal">
+        <p class="eyebrow eyebrow--center">The Journey</p>
+        <h2 class="journey__title">From bare ground to broken ground.</h2>
+        <p class="journey__sub">
+          Six stages. One straight line. This is the path your land travels with TerraPlan.
+        </p>
+      </div>
+      <div class="journey__grid">
+        <figure class="jcard reveal">
+          <div class="jcard__img"><img src="assets/journey-1-land.svg" alt="An open, beautiful piece of undeveloped property" /></div>
+          <figcaption>
+            <span class="jcard__num">01 / The Land</span>
+            <p>An open canvas. Beautiful, quiet, and full of unasked questions.</p>
+          </figcaption>
+        </figure>
+        <figure class="jcard reveal" data-delay="1">
+          <div class="jcard__img"><img src="assets/journey-2-scan.svg" alt="A split image of a LiDAR point cloud beside clean topographic contours" /></div>
+          <figcaption>
+            <span class="jcard__num">02 / The Scan</span>
+            <p>LiDAR turns your acreage into millions of precise points &mdash; then clean, readable contours.</p>
+          </figcaption>
+        </figure>
+        <figure class="jcard reveal">
+          <div class="jcard__img"><img src="assets/journey-3-concept.svg" alt="An early conceptualization sketch laid over the terrain" /></div>
+          <figcaption>
+            <span class="jcard__num">03 / The Vision</span>
+            <p>We sketch what&rsquo;s possible, grounding bold ideas in the real shape of your terrain.</p>
+          </figcaption>
+        </figure>
+        <figure class="jcard reveal" data-delay="1">
+          <div class="jcard__img"><img src="assets/journey-4-plans.svg" alt="Engineered site drawings and plans" /></div>
+          <figcaption>
+            <span class="jcard__num">04 / The Plans</span>
+            <p>Concepts harden into true engineered drawings &mdash; site plans, grading, the works.</p>
+          </figcaption>
+        </figure>
+        <figure class="jcard reveal">
+          <div class="jcard__img"><img src="assets/journey-5-permit.svg" alt="A regulatory permit document with an approved stamp and official seal" /></div>
+          <figcaption>
+            <span class="jcard__num">05 / The Approval</span>
+            <p>We walk your plans through county review, until the permit is stamped.</p>
+          </figcaption>
+        </figure>
+        <figure class="jcard reveal" data-delay="1">
+          <div class="jcard__img"><img src="assets/journey-6-build.svg" alt="A finished home on the developed build site" /></div>
+          <figcaption>
+            <span class="jcard__num">06 / The Build</span>
+            <p>Ground breaks. The plan you pictured becomes the place you stand on.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact">
+      <div class="contact__inner">
+        <div class="contact__lead reveal">
+          <p class="eyebrow">Say Hello</p>
+          <h2 class="contact__title">Tell us about your dirt.</h2>
+          <p class="lead">
+            No drip campaign. No &ldquo;we&rsquo;ll circle back.&rdquo; Just tell us where
+            the land sits and what keeps you wondering about it. We&rsquo;ll tell you
+            &mdash; honestly, and fast &mdash; what we think is possible.
+          </p>
+          <p class="contact__kicker">
+            Worst case, you learn something new about your own acreage.
+            Best case, it&rsquo;s the first call of the rest of its life.
+          </p>
+          <div class="contact__direct">
+            <span>Rather just talk? Real people answer.</span>
+            <a class="contact__phone" href="tel:+18085550148">(808) 555&middot;0148</a>
+            <a class="contact__email" href="mailto:hello@terraplan.example">hello@terraplan.example</a>
+          </div>
+        </div>
+        <form class="contact__form reveal" data-delay="1" id="contactForm" novalidate>
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" placeholder="Who&rsquo;s behind the vision?" required />
+          </div>
+          <div class="field">
+            <label for="f-reach">Email or phone</label>
+            <input id="f-reach" name="reach" type="text" placeholder="Where do we reach you?" required />
+          </div>
+          <div class="field">
+            <label for="f-where">Where&rsquo;s the land?</label>
+            <input id="f-where" name="where" type="text" placeholder="County, island, or &lsquo;follow the dirt road&rsquo;" />
+          </div>
+          <div class="field">
+            <label for="f-vision">What do you see out there?</label>
+            <textarea id="f-vision" name="vision" rows="3" placeholder="A vineyard? A legacy? A question mark? Tell us."></textarea>
+          </div>
+          <button class="btn btn--primary btn--block" type="submit">Send it over</button>
+          <p class="contact__note" id="formNote" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ TRUST ============ -->
+    <!-- Testimonials are placeholder copy, ready to be replaced with verified client quotes. -->
+    <section class="trust" id="trust">
+      <div class="trust__head reveal">
+        <p class="eyebrow eyebrow--center">Trust</p>
+        <h2 class="trust__title">Land owners talk. Here&rsquo;s what they say.</h2>
+      </div>
+      <div class="marquee" id="marquee">
+        <div class="marquee__track">
+          <figure class="quote">
+            <blockquote>We came in with a hillside and a hunch. TerraPlan handed back a permit and a plan we could actually build. They never once made us feel small for asking.</blockquote>
+            <figcaption><strong>Hillside owner</strong><span>Marin County, CA</span></figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>I&rsquo;ve worked with a lot of engineers. Few of them can also tell a story to a planning commission. TerraPlan can &mdash; and did.</blockquote>
+            <figcaption><strong>Principal architect</strong><span>Coastal studio</span></figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>The honesty up front saved us a year. They told us what the slope would and wouldn&rsquo;t allow before we fell in love with the wrong idea.</blockquote>
+            <figcaption><strong>Property owner</strong><span>Hawai&lsquo;i Island</span></figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>One contact. One invoice. One plan. After three false starts with other firms, that alone felt like a small miracle.</blockquote>
+            <figcaption><strong>Estate owner</strong><span>Napa Valley, CA</span></figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>Our clients expect deliverables that hold up. TerraPlan&rsquo;s surveys and contours are the cleanest we&rsquo;ve ever put in front of a designer.</blockquote>
+            <figcaption><strong>Studio director</strong><span>Honolulu, HI</span></figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>They treated our forty acres like it mattered as much to them as it did to us. Turns out, it did.</blockquote>
+            <figcaption><strong>Land owner</strong><span>Sonoma County, CA</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="footer">
+    <div class="footer__cta reveal">
+      <img class="footer__logo" src="assets/logo-vertical-white.svg" alt="TerraPlan" />
+      <p class="footer__poetic">
+        Somewhere in your acreage, the life you pictured is already waiting &mdash;
+        call, and we&rsquo;ll go find it together.
+      </p>
+      <a class="btn btn--brass" href="tel:+18085550148">Call (808) 555&middot;0148</a>
+    </div>
+    <div class="footer__grid">
+      <nav class="footer__col" aria-label="Explore">
+        <h4>Explore</h4>
+        <a href="#">The Journey</a>
+        <a href="#">The Plan</a>
+        <a href="#">Feasibility Studies</a>
+        <a href="#">Journal</a>
+      </nav>
+      <nav class="footer__col" aria-label="Company">
+        <h4>Company</h4>
+        <a href="#">About TerraPlan</a>
+        <a href="#">Our Process</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
+      </nav>
+      <nav class="footer__col" aria-label="Service areas">
+        <h4>Service Areas</h4>
+        <a href="#">California</a>
+        <a href="#">Hawai&lsquo;i</a>
+        <a href="#">New Inquiries</a>
+        <a href="#">Architect Partners</a>
+      </nav>
+      <nav class="footer__col" aria-label="Connect">
+        <h4>Connect</h4>
+        <a href="#contact">Contact</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="mailto:hello@terraplan.example">Email Us</a>
+      </nav>
+    </div>
+    <div class="footer__bar">
+      <p>&copy; 2026 TerraPlan &mdash; Land Development Planning for California &amp; Hawai&lsquo;i.</p>
+      <p class="footer__tag">Survey &middot; Civil Engineering &middot; Entitlements</p>
+      <p class="footer__legal"><a href="#">Privacy</a><a href="#">Terms</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
