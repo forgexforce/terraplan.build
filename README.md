@@ -38,7 +38,7 @@ AWS account (`continuity`, `maru`, `forgeforce`):
 - **CloudFront** — the only way in, via an Origin Access Identity
 - **ACM** — certificate for the apex and `www`, DNS-validated through Route 53
 - **Route 53** — A and AAAA alias records for both hostnames
-- **IAM** — a deploy role trusted *only* by `terraplan-build/website` via OIDC
+- **IAM** — a deploy role trusted *only* by `forgexforce/terraplan.build` via OIDC
 
 A CloudFront Function handles canonicalisation at the edge: `www` 301s to the
 apex, trailing slashes are stripped, and extensionless paths resolve to their

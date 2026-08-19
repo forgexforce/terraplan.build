@@ -5,9 +5,9 @@ set -euo pipefail
 
 STACK_NAME="${STACK_NAME:-terraplan}"
 DOMAIN="${DOMAIN:-terraplan.build}"
-ZONE_ID="${ZONE_ID:-Z00372992MX0BCMHFXAPT}"
-GITHUB_ORG="${GITHUB_ORG:-terraplan-build}"
-GITHUB_REPO="${GITHUB_REPO:-website}"
+ZONE_ID="${ZONE_ID:-Z06909163NR2EBQLDLXW1}"
+GITHUB_ORG="${GITHUB_ORG:-forgexforce}"
+GITHUB_REPO="${GITHUB_REPO:-terraplan.build}"
 REGION="${AWS_REGION:-us-east-1}"   # must be us-east-1: CloudFront requires the cert there
 
 cd "$(dirname "$0")/.."
