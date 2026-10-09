@@ -18,6 +18,14 @@ Parameters:
   GithubRepositoryName:
     Type: String
     MinLength: 1
+  GithubOrgId:
+    Type: String
+    Description: Numeric GitHub id of the owning user or org (gh api users/<owner> --jq .id)
+    AllowedPattern: '[0-9]+'
+  GithubRepositoryId:
+    Type: String
+    Description: Numeric GitHub id of the repo (gh api repos/<org>/<repo> --jq .id)
+    AllowedPattern: '[0-9]+'
 
 Resources:
   Bucket:
@@ -247,9 +255,16 @@ Resources:
             Principal:
               Federated: !Ref GithubIdentityProvider
             Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
               StringLike:
-                # limits this role to one repo in GitHub
-                token.actions.githubusercontent.com:sub: !Sub repo:${GithubOrgName}/${GithubRepositoryName}:*
+                # limits this role to one repo in GitHub. GitHub now issues
+                # subjects that embed the owner and repo ids
+                # (repo:org@123/repo@456:...); the plain form is kept for
+                # tokens that still use it.
+                token.actions.githubusercontent.com:sub:
+                  - !Sub repo:${GithubOrgName}/${GithubRepositoryName}:*
+                  - !Sub repo:${GithubOrgName}@${GithubOrgId}/${GithubRepositoryName}@${GithubRepositoryId}:*
 
 Outputs:
   BucketName:

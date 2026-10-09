@@ -8,6 +8,8 @@ DOMAIN="${DOMAIN:-terraplan.build}"
 ZONE_ID="${ZONE_ID:-Z06909163NR2EBQLDLXW1}"
 GITHUB_ORG="${GITHUB_ORG:-forgexforce}"
 GITHUB_REPO="${GITHUB_REPO:-terraplan.build}"
+GITHUB_ORG_ID="${GITHUB_ORG_ID:-106042137}"         # gh api users/forgexforce --jq .id
+GITHUB_REPO_ID="${GITHUB_REPO_ID:-1340102053}"      # gh api repos/forgexforce/terraplan.build --jq .id
 REGION="${AWS_REGION:-us-east-1}"   # must be us-east-1: CloudFront requires the cert there
 
 cd "$(dirname "$0")/.."
@@ -48,7 +50,9 @@ aws cloudformation deploy \
     Domain="$DOMAIN" \
     GithubIdentityProvider="$OIDC_PROVIDER" \
     GithubOrgName="$GITHUB_ORG" \
-    GithubRepositoryName="$GITHUB_REPO"
+    GithubRepositoryName="$GITHUB_REPO" \
+    GithubOrgId="$GITHUB_ORG_ID" \
+    GithubRepositoryId="$GITHUB_REPO_ID"
 
 echo
 echo "Stack outputs:"
