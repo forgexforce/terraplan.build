@@ -245,7 +245,10 @@ Resources:
             Version: "2012-10-17"
             Statement:
               - Effect: Allow
-                Action: cloudfront:CreateInvalidation
+                Action:
+                  - cloudfront:CreateInvalidation
+                  # lets the workflow wait for the invalidation to finish
+                  - cloudfront:GetInvalidation
                 Resource: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistribution}"
       AssumeRolePolicyDocument:
         Version: "2012-10-17"
