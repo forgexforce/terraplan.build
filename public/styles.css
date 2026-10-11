@@ -600,7 +600,7 @@ h1 em, h2 em { font-style: italic; color: var(--primary); }
 .marquee:hover .marquee__track { animation-play-state: paused; }
 @keyframes marquee {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(var(--marquee-shift, -50%)); }
 }
 .quote {
   flex: 0 0 clamp(280px, 78vw, 408px);

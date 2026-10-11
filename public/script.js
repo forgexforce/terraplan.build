@@ -79,14 +79,43 @@
     }, { passive: true });
   }
 
-  /* ---------- Testimonial marquee: seamless loop ---------- */
+  /* ---------- Trust marquee: seamless loop ---------- */
+  // Clone the cards until the track covers the viewport plus one full set,
+  // then scroll by exactly one set. A single copy shifted by -50% runs out
+  // of cards on screens wider than one set, leaving a blank stretch.
   var track = document.querySelector('.marquee__track');
   if (track) {
     var originals = Array.prototype.slice.call(track.children);
-    originals.forEach(function (node) {
-      var clone = node.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');
-      track.appendChild(clone);
+    var PX_PER_SECOND = 50;
+    var lastWidth = 0;
+
+    var buildMarquee = function () {
+      track.querySelectorAll('[data-clone]').forEach(function (n) { n.remove(); });
+      var period = 0;
+      var copies = 0;
+      do {
+        originals.forEach(function (node) {
+          var clone = node.cloneNode(true);
+          clone.setAttribute('aria-hidden', 'true');
+          clone.setAttribute('data-clone', '');
+          track.appendChild(clone);
+        });
+        copies++;
+        if (!period) period = track.children[originals.length].offsetLeft - originals[0].offsetLeft;
+      } while (copies < 20 && track.offsetWidth < period + track.parentNode.clientWidth);
+
+      track.style.setProperty('--marquee-shift', -period + 'px');
+      track.style.animationDuration = (period / PX_PER_SECOND) + 's';
+      lastWidth = window.innerWidth;
+    };
+
+    buildMarquee();
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      if (window.innerWidth === lastWidth) return;
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(buildMarquee, 200);
     });
   }
 
